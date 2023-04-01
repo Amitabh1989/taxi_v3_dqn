@@ -312,3 +312,12 @@ Hey, Welcome Amitabh !
          2.94762850e-01, -6.20618761e-02, -2.87227839e-01]], dtype=float32), array([0., 0., 0., 0., 0., 0.], dtype=float32)] 
 [functional.py - _conform_to_reference_input:678] : Tensore receied : Tensor("IteratorGetNext:0", shape=(None, 1), dtype=int32) 
 [functional.py - _conform_to_reference_input:679] : REf input receied : KerasTensor(type_spec=TensorSpec(shape=(None, 1), dtype=tf.float32, name='embedding_input'), name='embedding_input', description="created by layer 'embedding_input'") 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 1 => Total Reward : -1378 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 2 => Total Reward : -2818 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 3 => Total Reward : -4879 
+[taxi-dqn.py -             <module>:147] : ********************************** 
