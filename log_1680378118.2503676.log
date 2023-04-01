@@ -321,3 +321,24 @@ Hey, Welcome Amitabh !
 [taxi-dqn.py -             <module>:144] : ********************************** 
 [taxi-dqn.py -             <module>:145] : Episode: 3 => Total Reward : -4879 
 [taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 4 => Total Reward : -1333 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 5 => Total Reward : -8245 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 6 => Total Reward : -6256 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 7 => Total Reward : -1297 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 8 => Total Reward : -1549 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 9 => Total Reward : -1171 
+[taxi-dqn.py -             <module>:147] : ********************************** 
+[taxi-dqn.py -             <module>:144] : ********************************** 
+[taxi-dqn.py -             <module>:145] : Episode: 10 => Total Reward : -1351 
+[taxi-dqn.py -             <module>:147] : ********************************** 
