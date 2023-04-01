@@ -1,0 +1,12 @@
+[taxi-dqn.py -             <module>:22] : 
+
+
+Hey, Welcome Amitabh !
+
+
+ 
+[taxi-dqn.py -             <module>:28] : Observation space      : Discrete(500) 
+[taxi-dqn.py -             <module>:29] : Number of states       : 500 
+[taxi-dqn.py -             <module>:30] : Action space           : Discrete(6) 
+[taxi-dqn.py -             <module>:31] : Number of action space : 6 
+[taxi-dqn.py -  build_compile_model:69] : <bound method Model.summary of <keras.engine.sequential.Sequential object at 0x000001B8C1A1DD30>> 

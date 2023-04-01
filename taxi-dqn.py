@@ -8,16 +8,27 @@ import tensorflow as tf
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense, Embedding, Reshape, Activation
 from tensorflow.keras.optimizers import Adam
+import os, time, sys
 
+import logging
+logging.basicConfig(
+            level=logging.DEBUG,
+            format="[%(filename)s - %(funcName)20s:%(lineno)s] : %(message)s ",
+            handlers=[
+                    logging.StreamHandler(sys.stdout),
+                    logging.FileHandler("log_{}.log".format(time.time()), mode="w")]
+        )
+logger = logging.getLogger()
+logger.info("\n\n\nHey, Welcome Amitabh !\n\n\n")
 
 envn = gym.make("Taxi-v3").env
 envn.render()
 
 
-print(f"Observation space      : {envn.observation_space}")
-print(f"Number of states       : {envn.observation_space.n}")
-print(f"Action space           : {envn.action_space}")
-print(f"Number of action space : {envn.action_space.n}")
+logger.info(f"Observation space      : {envn.observation_space}")
+logger.info(f"Number of states       : {envn.observation_space.n}")
+logger.info(f"Action space           : {envn.action_space}")
+logger.info(f"Number of action space : {envn.action_space.n}")
 
 
 class Agent:
@@ -55,11 +66,14 @@ class Agent:
         model.add(Activation('linear'))  # Used for a continious variable
 
         model.compile(loss='mse', optimizer=self._optimizer)
-        print(model.summary)
+        logger.info(model.summary)
+        dot_img_file = os.path.join(os.getcwd(), f'model_{time.time()}.png')
+        tf.keras.utils.plot_model(model, to_file=dot_img_file, show_shapes=True)
         return model
 
 
     def align_target_model(self):
+        logger.info(f"Weights of the network : {self.q_network.get_weights()}")
         self.target_network.set_weights(self.q_network.get_weights())
     
     def act(self, state):
@@ -81,14 +95,15 @@ class Agent:
             else:
                 t = self.target_network.predict(next_state)
                 target[0][action] = reward + self.gamma * np.amax(t)
-
-            self.q_network.fit(state, target, epochs=1, verbose=1)
+            
+            logger.info(f"Target Network in retrain : {target}")
+            self.q_network.fit(state, target, epochs=1, verbose=0)
 
 optimizer = Adam(learning_rate=0.01)
 agent = Agent(envn, optimizer)
 
 batch_size=32
-num_of_episodes = 100
+num_of_episodes = 10
 timesteps_per_episode = 1000
 agent.q_network.summary()
 
@@ -117,7 +132,7 @@ for e in range(0, num_of_episodes):
         total_reward += reward
         if terminated:
             agent.align_target_model()
-            print(f"Total Reward : {total_reward}")
+            logger.info(f"Total Reward : {total_reward}")
             break
 
         if timestep % 10 == 0:
@@ -126,7 +141,7 @@ for e in range(0, num_of_episodes):
     bar.finish()
 
     # if (e + 1) % 10 == 0:
-    print("**********************************")
-    print("Episode: {}".format(e + 1))
+    logger.info("**********************************")
+    logger.info("Episode: {} => Total Reward : {}".format((e+1), total_reward))
     envn.render()
-    print("**********************************")
+    logger.info("**********************************")
