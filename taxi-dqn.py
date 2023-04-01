@@ -134,6 +134,9 @@ for e in range(0, num_of_episodes):
             agent.align_target_model()
             logger.info(f"Total Reward : {total_reward}")
             break
+        
+        if len(agent.experience_replay) > batch_size:
+            agent.retrain(batch_size)
 
         if timestep % 10 == 0:
             bar.update(timestep / 10 + 1)
